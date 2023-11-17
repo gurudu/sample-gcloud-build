@@ -1,5 +1,6 @@
-
 gcloud auth configure-docker us-east1-docker.pkg.dev
+
+./gradlew bootJar
 
 docker build -t hello-world .
 
