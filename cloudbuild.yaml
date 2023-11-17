@@ -6,11 +6,19 @@ steps:
   - name: gradle:8-jdk17
     entrypoint: gradle
     args: ['assemble']
-    # Build image
+    # Build the container image
   - name: 'gcr.io/cloud-builders/docker'
     args: [ 'build', '-t', 'us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.3', '--build-arg=JAR_FILE=build/libs/demo-0.0.1-SNAPSHOT.jar', '.' ]
-    automapSubstitutions: true
-# push images to gcloud artifact registry    
+
+  # Push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.3']
+    
+ # Deploy container image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args: ['run', 'deploy', 'hello-world', '--image', 'us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.3', '--region', 'us-central1']
+    
 images:
  - 'us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.3'
 # variables
