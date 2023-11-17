@@ -1,0 +1,12 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  script: |
+    docker build -t us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.1 .
+  automapSubstitutions: true
+images:
+- 'us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.1'
+
+substitutions:
+  _PROJECTID: western-cirrus-401714
+  _REPONAME: java-hellowolrd
+  _IMAGE: hello-world
