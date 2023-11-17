@@ -8,11 +8,11 @@ steps:
     args: ['assemble']
     # Build image
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'build', '-t', 'us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.2', '--build-arg=JAR_FILE=build/libs/*.jar', '.' ]
+    args: [ 'build', '-t', 'us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.3', '--build-arg=JAR_FILE=build/libs/*.jar', '.' ]
     automapSubstitutions: true
 # push images to gcloud artifact registry    
 images:
- - 'us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.2'
+ - 'us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.3'
 # variables
 substitutions:
   _PROJECTID: western-cirrus-401714
