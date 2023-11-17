@@ -1,6 +1,8 @@
 # Objective
  To Implement CI/CD pipeline using Google Cloud Build i.e to build and push docker image to artifact registry and deploy to CloudRun
-
+  ### Here is the High Level Architecture diagram that summarizes the workflow
+  ![High Level Architecture diagram](https://github.com/gurudu/sample-gcloud-build/assets/24590030/af6d6d05-a74c-4dba-b652-8fca6abc111a)
+  
 ## Some useful commands: 
 ### To configure docker authentication after logging into gcloud
 gcloud auth configure-docker us-east1-docker.pkg.dev
