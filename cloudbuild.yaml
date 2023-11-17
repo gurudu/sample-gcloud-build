@@ -1,16 +1,19 @@
+# jobs
 steps:
   - name: gradle:8-jdk17
     entrypoint: gradle
-    args: ["test"]
+    args: ['test']
   - name: gradle:8-jdk17
     entrypoint: gradle
-    args: ["assemble"]
+    args: ['assemble']
+    # Build image
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ "build", "-t", "us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.1", "--build-arg=JAR_FILE=build/libs/demo-0.0.1-SNAPSHOT.jar", "." ]
+    args: [ 'build', '-t', 'us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.2', '--build-arg=JAR_FILE=build/libs/*.jar', '.' ]
     automapSubstitutions: true
+# push images to gcloud artifact registry    
 images:
-- 'us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.1'
-
+ - 'us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.2'
+# variables
 substitutions:
   _PROJECTID: western-cirrus-401714
   _REPONAME: java-hellowolrd
