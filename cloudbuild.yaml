@@ -15,6 +15,7 @@ steps:
     args: ['push', 'us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.3']
     
  # Deploy container image to Cloud Run
+ # To deploy to Cloud Run grant the Cloud Run Admin and Service Account User roles to the Cloud Build service account
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args: ['run', 'deploy', 'hello-world', '--image', 'us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.3', '--region', 'us-central1']
