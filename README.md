@@ -1,5 +1,5 @@
 # Objective
- To Implement a simple demo for CI/CD pipeline using Google Cloud Build i.e to build and push docker image to artifact registry and deploy to CloudRun
+ To Implement a simple demo for CI/CD build automation using Github and Google Cloud Platform.  CI/CD pipeline using Google Cloud Build i.e to build and push docker image to artifact registry and deploy to CloudRun
   ### Here is the High Level Architecture diagram that summarizes the workflow
   ![High Level Architecture diagram](https://github.com/gurudu/sample-gcloud-build/assets/24590030/bbbbe944-254a-4cfa-8e0d-c90b47a9adba)
   
