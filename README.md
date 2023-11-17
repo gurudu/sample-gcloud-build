@@ -19,7 +19,7 @@ docker tag hello-world us-central1-docker.pkg.dev/western-cirrus-401714/java-hel
 ### Push the image to artifact registry
 docker push us-central1-docker.pkg.dev/western-cirrus-401714/java-hellowolrd/hello-world:0.0.1
 
-### We can also Submit cloud build gcloud cli
+### We can also Submit cloud build using google cloud cli
 gcloud builds submit --region=us-central1 --tag us-central1-docker.pkg.dev/western-cirrus-401714/java-hellowolrd/hello-world:0.0.1
 
 ### git push to automate the build and deploy process
