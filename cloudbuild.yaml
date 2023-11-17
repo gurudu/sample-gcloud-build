@@ -1,7 +1,13 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: [ "build", "-t", "us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.1", "--build-arg=JAR_FILE=build/libs/demo-0.0.1-SNAPSHOT", "." ]
-  automapSubstitutions: true
+  - name: gradle:8-jdk17
+    entrypoint: gradle
+    args: ["test"]
+  - name: gradle:8-jdk17
+    entrypoint: gradle
+    args: ["assemble"]
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ "build", "-t", "us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.1", "--build-arg=JAR_FILE=build/libs/demo-0.0.1-SNAPSHOT.jar", "." ]
+    automapSubstitutions: true
 images:
 - 'us-central1-docker.pkg.dev/${_PROJECTID}/${_REPONAME}/${_IMAGE}:0.0.1'
 
