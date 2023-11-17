@@ -41,5 +41,5 @@ git push -u origin main
  ![Cloud_Build3_gcloud_console](https://github.com/gurudu/sample-gcloud-build/assets/24590030/715dd2ee-ad27-4314-bf8f-466ca708701d)
 
 
-### CloudRun view in gcloud console
+### CloudRun view in gcloud console and also shows response of https URL
  ![Cloud_Run_gcloud_console](https://github.com/gurudu/sample-gcloud-build/assets/24590030/d44da3ca-bdd3-4588-8c0f-d4366afbcfe9) 
